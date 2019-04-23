@@ -11,8 +11,14 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class Org{
-	
+public class Org {
+
+	public Org(String name, int number, int id) {
+		this.orgName = name;
+		this.orgNumber = number;
+		this.id = id;
+	}
+
 	private String orgName;
 
 	private int orgNumber;
