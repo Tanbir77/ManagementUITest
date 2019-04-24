@@ -10,6 +10,11 @@ import org.springframework.context.annotation.FilterType;
 import ch.ralscha.extdirectspring.ExtDirectSpring;
 import ch.ralscha.extdirectspring.controller.ApiController;
 
+/**
+ * @author Tanbirul Hashan
+ * @since 2019-04-24
+ */
+
 @Configuration
 @ComponentScan(basePackageClasses = { ExtDirectSpring.class, Application.class },
 		excludeFilters = { @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE,

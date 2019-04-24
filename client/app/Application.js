@@ -15,6 +15,11 @@ Ext.define('Starter.Application', {
             quickTips: true
         }
     },
+    constructor() {
+  		REMOTING_API.url = serverUrl + REMOTING_API.url;
+  		Ext.direct.Manager.addProvider(REMOTING_API);
+  		this.callParent(arguments);
+	},
 	onAppUpdate() {
 		window.location.reload();
 	}

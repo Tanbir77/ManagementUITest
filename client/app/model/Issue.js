@@ -3,7 +3,7 @@ Ext.define("Starter.model.Issue",
   extend : "Ext.data.Model",
   requires : [ "Ext.data.proxy.Direct", "Ext.data.identifier.Negative" ],
   identifier : "negative",
-  fields : [ "issueName", "issueDescription", "submittedBy", "id" ],
+  fields : [ "id", "issueName", "issueDescription", "submittedBy" ],
   proxy : {
     type : "direct",
     api : {

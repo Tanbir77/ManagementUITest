@@ -18,6 +18,12 @@ import org.springframework.web.filter.CorsFilter;
 
 import ch.ralscha.extdirectspring.util.ExtDirectSpringUtil;
 
+/**
+ * Development Configuration Class
+ * 
+ * @author Tanbirul Hashan
+ * @since 2019-04-23
+ */
 @Configuration
 @Profile("development")
 class DevelopmentConfig {
@@ -38,11 +44,10 @@ class DevelopmentConfig {
 
 	@EventListener
 	public void handleContextRefresh(ApplicationReadyEvent event) throws IOException {
-		String extDirectConfig = ExtDirectSpringUtil
-				.generateApiString(event.getApplicationContext());
+		String extDirectConfig = ExtDirectSpringUtil.generateApiString(event.getApplicationContext());
 		String userDir = System.getProperty("user.dir");
 		Files.write(Paths.get(userDir, "client", "api.js"),
-				extDirectConfig.getBytes(StandardCharsets.UTF_8));
+		extDirectConfig.getBytes(StandardCharsets.UTF_8));
 	}
 
 }

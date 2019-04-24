@@ -4,6 +4,13 @@ import ch.rasc.extclassgenerator.Model;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Org Model.
+ * 
+ * @author Tanbirul Hashan
+ * @since 2019-04-23
+ */
+
 @Model(value = "Starter.model.Org", identifier = "negative", rootProperty = "records",
 		createMethod = "orgService.create", readMethod = "orgService.read",
 		updateMethod = "orgService.update", destroyMethod = "orgService.destroy",

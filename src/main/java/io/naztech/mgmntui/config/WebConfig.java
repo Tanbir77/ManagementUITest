@@ -7,6 +7,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.ralscha.extdirectspring.util.JsonHandler;
 
+/**
+ * Web Config
+ * 
+ * @author Tanbirul Hashan
+ * @since 2019-04-23
+ */
+
 @Configuration
 public class WebConfig {
 
