@@ -40,7 +40,7 @@ public class IssueService {
 
 	@ExtDirectMethod(STORE_MODIFY)
 	public void destroy(Issue destroyedIssue) {
-		
+		repo.delete(destroyedIssue);
 	}
 
 }
