@@ -5,12 +5,12 @@
 
 Prerequisite
 * Install Sencha CMD: https://www.sencha.com/products/extjs/cmd-download/
-* Download Ext JS 6.5 and unzip it into any folder (that's the folder you specify in step 3)
-* Make sure that the Ext JS version in ```eds-starter6-simple-jpa/workspace.json``` matches the downloaded Ext JS version
+* Download Ext JS 6.2.0 and unzip it into any folder (that's the folder you specify in step 3)
+  https://drive.google.com/file/d/1QRYp3pDTtteNBvyOjYHK54Rv-VHUmt1u/view
 
 1. Clone the repository
 2. ```cd eds-starter6-simple-jpa/client```
-3. ```sencha app upgrade --minimal ../path/to/framework```
+3. ```sencha app install ../path/to/framework```
 4. ```sencha app watch```
 5. In another shell ```cd eds-starter6-simple-jpa```
 6. ```./mvnw spring-boot:run -Dspring.profiles.active="development"```
