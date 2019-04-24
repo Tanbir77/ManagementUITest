@@ -83,25 +83,6 @@ Ext.define('Starter.view.crud.IssueGrid', {
 				disabled: '{!selectedIssue}'
 			}
 		}, '->',
-		// {
-		// 	emptyText: 'Search',
-		// 	xtype: 'textfield',
-		// 	listeners: {
-		// 		change: {
-		// 			fn: 'onNamefilterChange',
-		// 			buffer: 350
-		// 		}
-		// 	},
-		// 	triggers: {
-		// 		clear: {
-		// 			cls: 'x-form-clear-trigger',
-		// 			weight: 1,
-		// 			handler: function(tf) {
-		// 				tf.reset();
-		// 			}
-		// 		}
-		// 	}
-		// }
 		{
 			emptyText: 'Search',
 			xtype: 'textfield',
