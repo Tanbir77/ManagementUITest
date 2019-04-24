@@ -12,27 +12,27 @@ Ext.define('Starter.view.crud.IssueController', {
         id: 'nameFilter',
         filterFn: item => {
           const filterValue = value.toLowerCase();
-              const issueName = item.get('issueName');
-              const issueDescription = item.get('issueDescription');
-              const submittedBy = item.get('submittedBy');
-              
-              if (!Ext.isEmpty(issueName)) {
-                if (issueName.toLowerCase().indexOf(filterValue) >= 0) {
-                  return true;
-                }
-              }
-              if (!Ext.isEmpty(issueDescription)) {
-                if (issueDescription.toLowerCase().indexOf(filterValue) >= 0) {
-                  return true;
-                }
-              }
-              if (!Ext.isEmpty(submittedBy)) {
-                if (submittedBy.toLowerCase().indexOf(filterValue) >= 0) {
-                  return true;
-                }
-              }
-              return false;
+          const issueName = item.get('issueName');
+          const issueDescription = item.get('issueDescription');
+          const submittedBy = item.get('submittedBy');
+
+          if (!Ext.isEmpty(issueName)) {
+            if (issueName.toLowerCase().indexOf(filterValue) >= 0) {
+              return true;
+            }
           }
+          if (!Ext.isEmpty(issueDescription)) {
+            if (issueDescription.toLowerCase().indexOf(filterValue) >= 0) {
+              return true;
+            }
+          }
+          if (!Ext.isEmpty(submittedBy)) {
+            if (submittedBy.toLowerCase().indexOf(filterValue) >= 0) {
+              return true;
+            }
+          }
+          return false;
+        }
       });
     }
     else {
@@ -41,9 +41,9 @@ Ext.define('Starter.view.crud.IssueController', {
   },
 
 
-	deleteIssue() {
-		Ext.Msg.confirm('Really delete?', 'Are you sure?', this.onDeleteIssueConfirm, this);
-	},
+  deleteIssue() {
+    Ext.Msg.confirm('Really delete?', 'Are you sure?', this.onDeleteIssueConfirm, this);
+  },
 
 	// issueRenderer(value) {
 	// 	if (value) {
@@ -81,90 +81,72 @@ Ext.define('Starter.view.crud.IssueController', {
 	// },
 
 	newIssue() {
-		
-			// issueName: 'issue Name',
-			// issueDescription: 'Description',
-			// submittedby:'Submittedby'
-			// submittedby: 'new@submittedby.com'
-			// department: 'Customer Service'
-			win = Ext.create('Ext.Window', {
-                 extend: 'Ext.window.Window',
-                 title: 'Report',
-                 iconCls: 'x-fa fa-plus',
-                 layout:'form',
-                 xtype:'form',
-                 width:400,
-                 plain: true,
-                 items: [{
-                      xtype : 'textfield',
-                      fieldLabel: 'Issue Name',
-                      name:'issueName'
-                    },{
-                      xtype : 'textarea',
-                      fieldLabel: 'Issue Description',
-                      name:'issueDescription'
-                    },{
-                      xtype : 'textfield',
-                      fieldLabel: 'Submitted By',
-                      name:'submittedBy'
-                    }
-               ],
-               dockedItems:[//buttons replaced by dockedItems
-               {
-                  xtype:'toolbar',
-                  dock: 'bottom',
-                  ui:'footer',
-                  items:[
-                    {
-                      xtype:'button',
-                      text:'Cancel',
-                      handler:function(){
-                        win.close();
-                      }
-                    },'->',{
-                      xtype:'button',
-                      text:'Save',
+    var thisInstance=this;
+    win = Ext.create('Ext.Window', {
+     extend: 'Ext.window.Window',
+     title: 'Report',
+     iconCls: 'x-fa fa-plus',
+     layout:'form',
+     xtype:'form',
+     width:400,
+     plain: true,
+     items: [{
+      xtype : 'textfield',
+      fieldLabel: 'Issue Name',
+      name:'issueName'
+    },{
+      xtype : 'textarea',
+      fieldLabel: 'Issue Description',
+      name:'issueDescription'
+    },{
+      xtype : 'textfield',
+      fieldLabel: 'Submitted By',
+      name:'submittedBy'
+    }
+    ],
+    dockedItems:[
+    {
+      xtype:'toolbar',
+      dock: 'bottom',
+      ui:'footer',
+      items:[
+      {
+        xtype:'button',
+        text:'Cancel',
+        handler:function(){
+          win.close();
+        }
+      },'->',{
+        xtype:'button',
+        text:'Save',
                       //Saving an issue starts from here
                       listeners:{
-                      click:function()
-                      {
-      
-                        var varissuename = this.up('window').down('textfield[name=issueName]').getValue();
-                        var varissuedescription = this.up('window').down('textfield[name=issueDescription]').getValue();
-                        var varissuesubmittedby = this.up('window').down('textfield[name=submittedBy]').getValue();
+                        click:function()
+                        {
+                          var varissuename = this.up('window').down('textfield[name=issueName]').getValue();
+                          var varissuedescription = this.up('window').down('textfield[name=issueDescription]').getValue();
+                          var varissuesubmittedby = this.up('window').down('textfield[name=submittedBy]').getValue();
 
-                        Ext.toast("Issue Name: "+varissuename+"<br>Description: "+varissuedescription+"<br>Submitted By: "+varissuesubmittedby);
-                        
-                        // alert("Data: \n"+varissuename+"\n"+varissuedescription+"\n"+varissuesubmittedby);
-                        // issueName = varissuename;
-                        // issueDescription = varissuedescription;
-                        // submittedby = varissuesubmittedby;
+                          Ext.toast("Issue Name: "+varissuename+"<br>Description: "+varissuedescription+"<br>Submitted By: "+varissuesubmittedby);
+                          var newIssue = new Starter.model.Issue({
+                            issueName: varissuename,
+                            issueDescription: varissuedescription,
+                            submittedBy: varissuesubmittedby
+                          });
+                          console.log(newIssue);
+                          thisInstance.getStore('Issues').insert(0, newIssue);
+                          //thisInstance.getView().getPlugin('storePanelRowEditing').startEdit(0, 0);
+                          win.close();
 
-                        // grid.Issues.add(issueName);
-                        // grid.Issues.add(issueDescription);
-                        // grid.Issues.add(submittedby);
                         }
                       }
                       //saving an issue ends here
                     }
+                    ]
+                  }
                   ]
-                }
-               ]
                 }).show();
-		// issueName: varissuename,
-		// issueDescription: varissuedescription,
-		// submittedby:varissuesubmittedby
-    const newIssue = new Starter.model.Issue({
 
-      issueName: varissuename,
-
-      issueDescription: varissuedescription,
-
-      submittedBy: varissuesubmittedby
-
-    });
-		this.getStore('Issues').insert(0, newIssue);
-		this.getView().getPlugin('storePanelRowEditing').startEdit(0, 0);
-	}
+  },
 
 });
