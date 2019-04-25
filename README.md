@@ -9,10 +9,10 @@ Prerequisite
   https://drive.google.com/file/d/1QRYp3pDTtteNBvyOjYHK54Rv-VHUmt1u/view
 
 1. Clone the repository
-2. ```cd eds-starter6-simple-jpa/client```
+2. ```cd ManagementUITest/client```
 3. ```sencha app install ../path/to/framework```
 4. ```sencha app watch```
-5. In another shell ```cd eds-starter6-simple-jpa```
+5. In another shell ```cd ManagementUITest```
 6. ```./mvnw spring-boot:run -Dspring.profiles.active="development"```
 7. Open url http://localhost:8080 in a browser
 
