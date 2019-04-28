@@ -7,7 +7,7 @@ spring:
     show-sql: true
 
 server:
-  port: 8080
+  port: 8090
   compression:
     enabled: false
 

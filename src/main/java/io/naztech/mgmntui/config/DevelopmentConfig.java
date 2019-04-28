@@ -11,7 +11,6 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.EventListener;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.filter.CorsFilter;
@@ -25,7 +24,7 @@ import ch.ralscha.extdirectspring.util.ExtDirectSpringUtil;
  * @since 2019-04-23
  */
 @Configuration
-@Profile("development")
+//@Profile("development")
 class DevelopmentConfig {
 
 	@Bean

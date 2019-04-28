@@ -187,7 +187,7 @@
 								</copy>
 
 								<replace file="${basedir}/target/classes/static/index.html">
-									<replacefilter token="var serverUrl = 'http://localhost:8080/';"
+									<replacefilter token="var serverUrl = 'http://localhost:8090/';"
 										value="var serverUrl = '';" />
 
 								</replace>

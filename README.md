@@ -14,7 +14,7 @@ Prerequisite
 4. ```sencha app watch```
 5. In another shell ```cd ManagementUITest```
 6. ```./mvnw spring-boot:run -Dspring.profiles.active="development"```
-7. Open url http://localhost:8080 in a browser
+7. Open url http://localhost:8090 in a browser
 
 
 **Build the application for production**
